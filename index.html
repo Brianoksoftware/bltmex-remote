@@ -190,10 +190,38 @@
 
 
 
+
+
+
         .banner-ad {
             text-align: center;
-            margin: 10px auto; /* Adds some vertical spacing and centers horizontally */
+            margin: 10px auto;
+            max-width: 100%; /* Ensure the ad doesn't exceed the viewport width */
         }
+
+        .banner-img {
+            max-width: 100%; /* Image will scale down if the screen is smaller */
+            height: auto;   /* Maintain aspect ratio */
+            display: inline-block; /* Center the image within the container */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .banner-ad {
+                width: 100%; /* Full width on mobile */
+                padding: 0 10px; /* Add some padding for small screens */
+            }
+        }
+
+        /* If the pop-up ad creates a div or element, you might need to style this too */
+        .popup-ad {
+            max-width: 100%;
+            overflow: hidden; /* In case the ad overflows */
+            box-sizing: border-box; /* Padding doesn't affect the width */
+        }
+
+
+
 
 
         input:checked + .slider {
