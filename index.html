@@ -127,30 +127,59 @@
             border-radius: 0 0 15px 15px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .news-content {
-                grid-template-columns: 1fr;
+        
+
+        /* Updated styles for ads */
+        .banner-ad {
+            text-align: center;
+            margin: 10px auto;
+            max-width: 100%; /* Ensure the ad doesn't exceed the viewport width */
+        }
+
+        .banner-img {
+            max-width: 100%; /* Image will scale down if the screen is smaller */
+            height: auto;   /* Maintain aspect ratio */
+            display: inline-block; /* Center the image within the container */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 768px) {
+            .banner-ad {
+                width: 100%; /* Full width on mobile */
+                padding: 0 10px; /* Add some padding for small screens */
             }
-            .image-container {
-                flex-direction: row;
-                overflow-x: auto;
-                gap: 10px;
+
+            /* Show mobile-specific ad */
+            .mobile-ad {
+                display: block;
             }
-            .image-container img {
-                flex: 0 0 auto;
-                max-width: 300px;
+
+            /* Hide desktop-specific ad */
+            .desktop-ad {
+                display: none;
             }
         }
 
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2em;
+        /* If the pop-up ad creates a div or element, you might need to style this too */
+        .popup-ad {
+            max-width: 100%;
+            overflow: hidden; /* In case the ad overflows */
+            box-sizing: border-box; /* Padding doesn't affect the width */
+        }
+
+        /* Desktop ad settings */
+        @media (min-width: 769px) {
+            .mobile-ad {
+                display: none;
             }
-            .subtitle {
-                font-size: 1.2em;
+
+            .desktop-ad {
+                display: block;
             }
         }
+
+
+        
 
         /* Mode Toggle */
         .mode-toggle {
@@ -260,11 +289,21 @@
 </head>
 <body>
 
-    <!-- Banner ad code here -->
-    <div class="banner-ad">
+    
+
+
+     <!-- Banner ad for desktop screens -->
+    <div class="banner-ad desktop-ad">
         <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=728x90&ga=g"></script>
         <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/728x90.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
     </div>
+
+    <!-- Banner ad for mobile screens -->
+    <div class="banner-ad mobile-ad">
+        <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=300x250&ga=g"></script>
+        <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
+    </div>
+
 
 
 
@@ -304,7 +343,7 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="https://vdbaa.com/pup.php?section=General&pt=2&pub=816797&ga=g"></script>
+   <!-- <script type="text/javascript" src="https://vdbaa.com/pup.php?section=General&pt=2&pub=816797&ga=g"></script> -->
 
     <script>
         document.getElementById('darkModeToggle').addEventListener('change', function() {
