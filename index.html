@@ -85,22 +85,43 @@
             padding: 30px;
         }
 
-        .image-container {
+          .image-container {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
         .image-container img {
-            width: 100%;
-            height: auto;
+            width: 100%; /* Ensure the image stretches to the full container width */
+            height: auto; /* Maintain aspect ratio */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
         }
 
         .image-container img:hover {
             transform: scale(1.05);
+        }
+
+        /* Adjust layout for smaller screens */
+        @media (max-width: 768px) {
+            .news-content {
+                grid-template-columns: 1fr;
+            }
+
+            .image-container {
+                flex-direction: row; /* Images will now be side by side */
+                overflow-x: auto; /* Allows horizontal scrolling if needed */
+                gap: 10px;
+            }
+
+            .image-container img {
+                flex: 0 0 auto; /* Each image has its own space */
+                max-width: calc(100vw - 20px); /* Adjust width to fit screen minus some padding */
+                min-width: 150px; /* Minimum width for images */
+                max-height: 200px; /* Set a max height for images on small screens */
+            }
         }
 
         .text-content {
@@ -180,14 +201,14 @@
 
 
 
-
-        /* Mode Toggle */
+ /* Mode Toggle */
         .mode-toggle {
             position: fixed;
             top: 20px;
-            right: 20px;
+            right: 20px; /* Adjust this if needed, but we'll use CSS to move it inwards */
             z-index: 1000;
-            padding-bottom:20px;
+            padding-bottom: 20px;
+            transform: translateX(-20px); /* Moves the button inwards */
         }
 
         .switch {
