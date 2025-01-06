@@ -334,11 +334,48 @@
             content: '\1F31C';
             transform: translateX(-30px);
         }
+
+
+
+
+        nav {
+            background-color: var(--header-bg);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color); /* Use the text color variable for better contrast */
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ensure contrast for dark mode */
+        body.dark-mode nav ul li a {
+            color: var(--text-color); /* Override with the dark mode text color */
+        }
+
+
+
     </style>
 </head>
 <body>
 
-    
 
 
      <!-- Banner ad for desktop screens -->
@@ -352,6 +389,20 @@
         <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=300x250&ga=g"></script>
         <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
     </div>
+
+
+
+
+      <!-- Add the navigation bar right after the body starts -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
 
 
 
@@ -400,7 +451,7 @@
             document.body.classList.toggle('dark-mode', this.checked);
         });
     </script>
-    
+
 
     <!--adcash ad -->
     <script type="text/javascript">  
