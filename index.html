@@ -31,7 +31,6 @@
 
 
 
-
 <style>
     :root {
         --bg-color: #f9f9f9;
@@ -84,7 +83,8 @@
         padding: 15px 0; /* Reduced padding */
         background: var(--header-bg);
         color: white;
-        border-radius: 15px 15px 0 0;
+        /*border-radius: 15px 15px 0 0;*/
+        border-radius:15px;
     }
 
     .title {
@@ -113,13 +113,20 @@
     }
 
     .image-container img {
-        width: calc(50% - 10px); /* Two images per row on larger screens */
-        max-width: 400px; /* Set a maximum width */
+        width: 100%; /* Full width on mobile */
+        max-width: 100%; /* Prevent overflow */
         height: auto;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.3s;
         object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+        .image-container img {
+            width: 48%; /* Two images per row on larger screens */
+            max-width: 400px; /* Maximum width */
+        }
     }
 
     .image-container img:hover {
@@ -155,237 +162,160 @@
             grid-template-columns: 1fr 2fr; /* Restore two-column layout */
         }
         .image-container {
-            flex-wrap: nowrap; /* Prevent wrapping on larger screens */
             flex-direction: column;
         }
-       .image-container img {
+        .image-container img {
             width: 100%;
-            max-width: 100%;
         }
     }
-/*rest of the code*/
-/* ... (rest of your CSS code remains the same) */
 
-.text-content {
-            line-height: 1.8;
-        }
+    /* Navigation and other styles */
+    nav {
+        background-color: var(--header-bg);
+        padding: 10px 0;
+        text-align: center;
+    }
 
-        .text-content h3 {
-            font-size: 1.7em;
-            color: var(--h3-color);
-            margin-bottom: 15px;
-        }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .text-content p {
-            font-size: 1.1em;
-            color: var(--text-color);
-            margin-bottom: 20px;
-        }
+    nav ul li {
+        display: inline-block;
+        margin: 0 15px;
+    }
 
-        .footer {
-            text-align: center;
-            padding: 20px 0;
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            border-radius: 0 0 15px 15px;
-        }
+    nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.1em;
+    }
 
-        
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
 
-        /* Updated styles for ads */
+    body.dark-mode nav ul li a {
+        color: var(--text-color);
+    }
+
+    /* Mode Toggle */
+    .mode-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        padding-bottom: 20px;
+        transform: translateX(-20px);
+    }
+
+    .switch {
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        position: relative;
+    }
+
+    .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--toggle-bg);
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: var(--toggle-switch);
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: var(--h3-color);
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    .slider::after {
+        content: '\1F31E';
+        color: var(--toggle-icon);
+        display: block;
+        position: absolute;
+        transform: translateX(10px);
+        font-size: 20px;
+        top: 4px;
+    }
+
+    input:checked + .slider::after {
+        content: '\1F31C';
+        transform: translateX(-30px);
+    }
+
+    /* Ads */
+    .banner-ad {
+        text-align: center;
+        margin: 10px auto;
+        max-width: 100%;
+    }
+
+    .banner-img {
+        max-width: 100%;
+        height: auto;
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
         .banner-ad {
-            text-align: center;
-            margin: 10px auto;
-            max-width: 100%; /* Ensure the ad doesn't exceed the viewport width */
+            width: 100%;
+            padding: 0 10px;
         }
-
-        .banner-img {
-            max-width: 100%; /* Image will scale down if the screen is smaller */
-            height: auto;   /* Maintain aspect ratio */
-            display: inline-block; /* Center the image within the container */
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            .banner-ad {
-                width: 100%; /* Full width on mobile */
-                padding: 0 10px; /* Add some padding for small screens */
-            }
-
-            /* Show mobile-specific ad */
-            .mobile-ad {
-                display: block;
-            }
-
-            /* Hide desktop-specific ad */
-            .desktop-ad {
-                display: none;
-            }
-        }
-
-        /* If the pop-up ad creates a div or element, you might need to style this too */
-        .popup-ad {
-            max-width: 100%;
-            overflow: hidden; /* In case the ad overflows */
-            box-sizing: border-box; /* Padding doesn't affect the width */
-        }
-
-        /* Desktop ad settings */
-        @media (min-width: 769px) {
-            .mobile-ad {
-                display: none;
-            }
-
-            .desktop-ad {
-                display: block;
-            }
-        }
-
-
-
- /* Mode Toggle */
-        .mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px; /* Adjust this if needed, but we'll use CSS to move it inwards */
-            z-index: 1000;
-            padding-bottom: 20px;
-            transform: translateX(-20px); /* Moves the button inwards */
-        }
-
-        .switch {
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-            position: relative;
-        }
-
-        .switch input { 
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--toggle-bg);
-            transition: .4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: var(--toggle-switch);
-            transition: .4s;
-            border-radius: 50%;
-        }
-
-
-
-
-
-
-        .banner-ad {
-            text-align: center;
-            margin: 10px auto;
-            max-width: 100%; /* Ensure the ad doesn't exceed the viewport width */
-        }
-
-        .banner-img {
-            max-width: 100%; /* Image will scale down if the screen is smaller */
-            height: auto;   /* Maintain aspect ratio */
-            display: inline-block; /* Center the image within the container */
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            .banner-ad {
-                width: 100%; /* Full width on mobile */
-                padding: 0 10px; /* Add some padding for small screens */
-            }
-        }
-
-        /* If the pop-up ad creates a div or element, you might need to style this too */
-        .popup-ad {
-            max-width: 100%;
-            overflow: hidden; /* In case the ad overflows */
-            box-sizing: border-box; /* Padding doesn't affect the width */
-        }
-
-
-
-
-
-        input:checked + .slider {
-            background-color: var(--h3-color);
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-
-        .slider::after {
-            content: '\1F31E';
-            color: var(--toggle-icon);
+        .mobile-ad {
             display: block;
-            position: absolute;
-            transform: translateX(10px);
-            font-size: 20px;
-            top: 4px;
         }
-
-        input:checked + .slider::after {
-            content: '\1F31C';
-            transform: translateX(-30px);
+        .desktop-ad {
+            display: none;
         }
+    }
 
-
-
-
-        nav {
-            background-color: var(--header-bg);
-            padding: 10px 0;
-            text-align: center;
+    @media (min-width: 769px) {
+        .mobile-ad {
+            display: none;
         }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        .desktop-ad {
+            display: block;
         }
+    }
 
-        nav ul li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: var(--text-color); /* Use the text color variable for better contrast */
-            text-decoration: none;
-            font-size: 1.1em;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Ensure contrast for dark mode */
-        body.dark-mode nav ul li a {
-            color: var(--text-color); /* Override with the dark mode text color */
-        }
-
+    .popup-ad {
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
 
 </style>
+
+
+
 
 
     
