@@ -31,6 +31,7 @@
 
 
 
+
 <style>
     :root {
         --bg-color: #f9f9f9;
@@ -65,56 +66,54 @@
         background-color: var(--bg-color);
         color: var(--text-color);
         overflow-x: hidden;
-        transition: background-color 0.3s, color 0.3s;
     }
 
     .container {
-        max-width: 1100px;
-        margin: 20px auto; /* Reduced top margin for smaller screens */
+        width: 100%; /* Full width to remove space on the sides */
+        max-width: 1100px; /* Maximum width for larger screens */
+        margin: 0 auto; /* Center the container */
         background: var(--container-bg);
         border-radius: 15px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        padding: 20px; /* Reduced padding for smaller screens */
-        box-sizing: border-box; /* Important for padding and width calculations */
+        padding: 20px 0; /* Remove horizontal padding, add vertical padding */
+        box-sizing: border-box;
     }
 
     .header {
         text-align: center;
-        padding: 15px 0; /* Reduced padding */
+        padding: 15px;
         background: var(--header-bg);
         color: white;
-        /*border-radius: 15px 15px 0 0;*/
-        border-radius:15px;
+        border-radius: 15px;
+        margin-bottom:20px;
     }
 
     .title {
-        font-size: 2em; /* Slightly smaller font size */
+        font-size: 2em;
         font-weight: 700;
-        margin-bottom: 5px; /* Reduced margin */
+        margin-bottom: 5px;
     }
 
     .subtitle {
-        font-size: 1.2em; /* Slightly smaller font size */
+        font-size: 1.2em;
         font-weight: 400;
     }
 
     .news-content {
-        display: grid;
-        grid-template-columns: 1fr; /* Stack on smaller screens by default */
-        gap: 20px; /* Reduced gap */
-        padding: 20px; /* Reduced padding */
+        width: 90%; /* Use percentage for responsive design */
+        margin: 0 auto; /* Center the content within the container */
+        padding: 0; /* Remove padding */
     }
 
     .image-container {
         display: flex;
-        flex-wrap: wrap; /* Allow images to wrap to the next line */
-        justify-content: center; /* Center images horizontally */
+        flex-wrap: wrap;
+        justify-content: center; /* Center images */
         gap: 10px;
     }
 
     .image-container img {
-        width: 100%; /* Full width on mobile */
-        max-width: 100%; /* Prevent overflow */
+        max-width: 100%; /* Ensure images don't overflow */
         height: auto;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -122,54 +121,44 @@
         object-fit: cover;
     }
 
-    @media (min-width: 768px) {
-        .image-container img {
-            width: 48%; /* Two images per row on larger screens */
-            max-width: 400px; /* Maximum width */
-        }
-    }
-
-    .image-container img:hover {
-        transform: scale(1.05);
-    }
-
     .text-content {
-        line-height: 1.6; /* Slightly reduced line height */
+        text-align: center; /* Center text */
+        line-height: 1.6;
+        padding: 0 20px; /* Add some padding for text readability */
     }
 
-    .text-content h3 {
-        font-size: 1.4em; /* Smaller heading size */
-        color: var(--h3-color);
-        margin-bottom: 10px; /* Reduced margin */
-    }
-
-    .text-content p {
-        font-size: 1em; /* Smaller paragraph size */
-        margin-bottom: 15px; /* Reduced margin */
+    .text-content h3, .text-content p {
+        text-align: left; /* Align text to left within text-content */
+        margin-bottom: 15px;
     }
 
     .footer {
         text-align: center;
-        padding: 15px 0; /* Reduced padding */
+        padding: 15px 0;
         background: var(--footer-bg);
         color: var(--footer-text);
-        border-radius: 0 0 15px 15px;
+        border-radius: 15px;
     }
 
-    /* Media query for larger screens (tablets and desktops) */
     @media (min-width: 768px) {
         .news-content {
-            grid-template-columns: 1fr 2fr; /* Restore two-column layout */
+            display: flex;
+            flex-direction: row;
         }
         .image-container {
-            flex-direction: column;
+            width: 40%; /* Adjust width for side-by-side layout */
+            margin-right: 20px; /* Add space between image and text */
         }
-        .image-container img {
-            width: 100%;
+        .text-content {
+            width: 60%; /* Adjust width for side-by-side layout */
+            text-align: left; /* Reset text alignment for wider screens */
+        }
+        .text-content h3, .text-content p {
+            text-align: left; /* Ensure text stays left-aligned */
         }
     }
 
-    /* Navigation and other styles */
+    /* Navigation */
     nav {
         background-color: var(--header-bg);
         padding: 10px 0;
@@ -180,10 +169,12 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     nav ul li {
-        display: inline-block;
         margin: 0 15px;
     }
 
@@ -210,6 +201,9 @@
         padding-bottom: 20px;
         transform: translateX(-20px);
     }
+
+    /* Other styles remain unchanged */
+    /* ... */
 
     .switch {
         display: inline-block;
@@ -313,6 +307,7 @@
     }
 
 </style>
+
 
 
 
