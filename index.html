@@ -26,145 +26,147 @@
     <meta property="og:site_name" content="Summary New">
 
 
-    <style>
-        :root {
-            --bg-color: #f9f9f9;
-            --text-color: #333;
-            --container-bg: #ffffff;
-            --header-bg: linear-gradient(45deg, #00B4DB, #0083B0);
-            --h3-color: #0083B0;
-            --footer-bg: #e0e0e0;
-            --footer-text: #666;
-            --toggle-bg: #ccc;
-            --toggle-switch: #fff;
-            --toggle-icon: #666;
-        }
-
-        body.dark-mode {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --container-bg: #1e1e1e;
-            --header-bg: linear-gradient(45deg, #2196F3, #0D47A1);
-            --h3-color: #2196F3;
-            --footer-bg: #2b2b2b;
-            --footer-text: #999;
-            --toggle-bg: #444;
-            --toggle-switch: #777;
-            --toggle-icon: #fff;
-        }
-
-        /*body {
-            margin: 0;
-            font-family: 'Roboto', 'Arial', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s, color 0.3s;
-        }*/
 
 
 
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', 'Arial', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .image-container img {
-            width: 100%; /* Ensure the image fits within its container */
-            height: auto; /* Maintain aspect ratio */
-            max-width: 100%; /* Prevent images from overflowing */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
-        }
 
 
+<style>
+    :root {
+        --bg-color: #f9f9f9;
+        --text-color: #333;
+        --container-bg: #ffffff;
+        --header-bg: linear-gradient(45deg, #00B4DB, #0083B0);
+        --h3-color: #0083B0;
+        --footer-bg: #e0e0e0;
+        --footer-text: #666;
+        --toggle-bg: #ccc;
+        --toggle-switch: #fff;
+        --toggle-icon: #666;
+    }
 
+    body.dark-mode {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --container-bg: #1e1e1e;
+        --header-bg: linear-gradient(45deg, #2196F3, #0D47A1);
+        --h3-color: #2196F3;
+        --footer-bg: #2b2b2b;
+        --footer-text: #999;
+        --toggle-bg: #444;
+        --toggle-switch: #777;
+        --toggle-icon: #fff;
+    }
 
-        .container {
-            max-width: 1100px;
-            overflow-x: hidden;
-            margin: 30px auto;
-            background: var(--container-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-top:40px;
-        }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', 'Arial', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+        transition: background-color 0.3s, color 0.3s;
+    }
 
-        .header {
-            text-align: center;
-            padding: 20px 0;
-            background: var(--header-bg);
-            color: white;
-            border-radius: 15px 15px 0 0;
-        }
+    .container {
+        max-width: 1100px;
+        margin: 20px auto; /* Reduced top margin for smaller screens */
+        background: var(--container-bg);
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        padding: 20px; /* Reduced padding for smaller screens */
+        box-sizing: border-box; /* Important for padding and width calculations */
+    }
 
-        .title {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
+    .header {
+        text-align: center;
+        padding: 15px 0; /* Reduced padding */
+        background: var(--header-bg);
+        color: white;
+        border-radius: 15px 15px 0 0;
+    }
 
-        .subtitle {
-            font-size: 1.4em;
-            font-weight: 400;
-        }
+    .title {
+        font-size: 2em; /* Slightly smaller font size */
+        font-weight: 700;
+        margin-bottom: 5px; /* Reduced margin */
+    }
 
+    .subtitle {
+        font-size: 1.2em; /* Slightly smaller font size */
+        font-weight: 400;
+    }
+
+    .news-content {
+        display: grid;
+        grid-template-columns: 1fr; /* Stack on smaller screens by default */
+        gap: 20px; /* Reduced gap */
+        padding: 20px; /* Reduced padding */
+    }
+
+    .image-container {
+        display: flex;
+        flex-wrap: wrap; /* Allow images to wrap to the next line */
+        justify-content: center; /* Center images horizontally */
+        gap: 10px;
+    }
+
+    .image-container img {
+        width: calc(50% - 10px); /* Two images per row on larger screens */
+        max-width: 400px; /* Set a maximum width */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s;
+        object-fit: cover;
+    }
+
+    .image-container img:hover {
+        transform: scale(1.05);
+    }
+
+    .text-content {
+        line-height: 1.6; /* Slightly reduced line height */
+    }
+
+    .text-content h3 {
+        font-size: 1.4em; /* Smaller heading size */
+        color: var(--h3-color);
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .text-content p {
+        font-size: 1em; /* Smaller paragraph size */
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    .footer {
+        text-align: center;
+        padding: 15px 0; /* Reduced padding */
+        background: var(--footer-bg);
+        color: var(--footer-text);
+        border-radius: 0 0 15px 15px;
+    }
+
+    /* Media query for larger screens (tablets and desktops) */
+    @media (min-width: 768px) {
         .news-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            padding: 30px;
+            grid-template-columns: 1fr 2fr; /* Restore two-column layout */
         }
-
-          .image-container {
-            display: flex;
+        .image-container {
+            flex-wrap: nowrap; /* Prevent wrapping on larger screens */
             flex-direction: column;
-            gap: 20px;
         }
-
-       /* .image-container img {
-            width: 100%; 
-            height: auto; 
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s;
-            object-fit: cover; 
+       .image-container img {
+            width: 100%;
+            max-width: 100%;
         }
-        */
+    }
+/*rest of the code*/
+/* ... (rest of your CSS code remains the same) */
 
-        .image-container img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Adjust layout for smaller screens */
-        @media (max-width: 768px) {
-            .news-content {
-                grid-template-columns: 1fr;
-            }
-
-            .image-container {
-                flex-direction: row; /* Images will now be side by side */
-                overflow-x: auto; /* Allows horizontal scrolling if needed */
-                gap: 10px;
-            }
-
-            .image-container img {
-                flex: 0 0 auto; /* Each image has its own space */
-                max-width: calc(100vw - 20px); /* Adjust width to fit screen minus some padding */
-                min-width: 150px; /* Minimum width for images */
-                max-height: 200px; /* Set a max height for images on small screens */
-            }
-        }
-
-        .text-content {
+.text-content {
             line-height: 1.8;
         }
 
@@ -383,8 +385,14 @@
         }
 
 
+</style>
 
-    </style>
+
+    
+
+
+
+
 </head>
 <body>
 
@@ -440,7 +448,7 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Los Angeles fires:</h1>
-            <h2 class="subtitle">At least 5 dead, property destroyed</h2>
+            <h2 class="subtitle">At least 10 dead, property destroyed</h2>
         </div>
         <div class="news-content">
             <div class="image-container">
@@ -451,8 +459,28 @@
                 <img src="loomerh1b.jpg" alt="H-1B Visa Debate">-->
             </div>
             <div class="text-content">
-                <h3>Musk, Trump and Ramaswamy's Stance:</h3>
-                <p>Donald Trump has recently expressed support for the H-1B visa program, stating he's always been in favor of these visas, which allow highly skilled foreign workers into the U.S. This stance marks a departure from previous criticisms he made of the program during his first term. Elon Musk, who benefited from an H-1B visa himself early in his career, alongside Vivek Ramaswamy, have vocally defended the program. They argue that it's essential for bringing in top engineering talent to maintain America's competitive edge in technology, with Musk even warning of going to "war" over the issue. Ramaswamy has controversially suggested that American culture has often prioritized mediocrity over excellence, which he claims contributes to the need for foreign talent.</p>
+                <h3>Lives lost, houses razed to the ground:</h3>
+                <p>
+                    Devastating Wildfires Continue to Rage Across Los Angeles
+                    Los Angeles, CA - In a series of devastating events, multiple wildfires have swept through Los Angeles, causing unprecedented destruction and loss. Here are the latest updates on this unfolding crisis:
+
+                    Death Toll and Damage:
+                    At least 10 individuals have tragically lost their lives due to the fires, with the Los Angeles County Medical Examiner confirming the fatalities. The process of identification remains ongoing due to hazardous conditions at the sites.
+
+                    The fires have decimated thousands of structures, with estimates suggesting over 9,000 homes and buildings have been damaged or destroyed across the Palisades and Eaton fires alone.
+
+
+                    Current Fire Status:
+                    Palisades Fire: This blaze, the largest in the region, has scorched nearly 20,000 acres and remains only 6% contained. It has obliterated over 5,300 structures in Pacific Palisades and westward.
+
+
+                    Eaton Fire: Burning near Altadena and Pasadena, it has engulfed over 13,690 acres and is also 0% contained, contributing to the death toll with three confirmed fatalities.
+
+                    Kenneth Fire: A newer fire that broke out in Woodland Hills, it has grown to 960 acres but its forward progress has been stopped, with firefighters focusing on hotspots overnight.
+
+
+                    Hurst Fire and Lidia Fire: These fires are at 37% and 60% containment respectively, showing some progress in containment efforts, though they add to the total land ravaged by fire.
+                </p>
 
 
 
@@ -475,12 +503,37 @@
 
 
 
-                <h3>Laura Loomer and Other Prominent MAGA Figures:</h3>
-                <p>Laura Loomer, a staunch Trump supporter, has launched a vehement attack against the pro-H-1B visa stance, accusing Musk and Ramaswamy of betraying the "America First" ethos. She has publicly criticized the appointment of Indian-American entrepreneur Sriram Krishnan in Trump's administration, suggesting it contradicts MAGA's immigration policies. Loomer's criticisms have included racially charged comments, leading to accusations of trolling from Musk. Other MAGA figures like Steve Bannon have labeled the H-1B program a "scam," aligning with a hardline anti-immigration stance that resonates with many of Trump's original supporters. This faction argues for prioritizing American workers over foreign talent.</p>
+                <h3>Evacuations and Public Safety:</h3>
+                    <p>
+                        Over 130,000 people have been under evacuation orders, with some areas like Hollywood Hills seeing orders lifted, but warnings remain in place.
 
-                <p>The debate has not only intensified online but has also led to accusations of censorship against Musk, with claims that critics like Loomer have faced repercussions on Musk's social platform, X. This internal conflict could signal broader tensions within Trump's coalition as his new term approaches, highlighting the clash between economic interests in technology and traditional MAGA immigration policies.</p>
+                        Traffic management has been a significant challenge, leading to gridlock in some areas, prompting criticism from residents and public figures.
 
-                <p>Stay tuned for further developments on this contentious issue.</p>
+
+                        Infrastructure and Utilities:
+                        Approximately 95,000 customers are currently without power, with restoration times uncertain due to damage and inaccessibility in fire-affected areas.
+
+                        Water advisories have been issued in Pasadena and parts of Pacific Palisades, urging residents to use bottled or boiled water for consumption.
+
+
+                        Legal and Security Measures:
+                        An individual has been arrested on suspicion of arson related to the Kenneth Fire, highlighting concerns over intentional fire setting.
+
+                        A curfew and increased National Guard presence are planned to curb looting in the devastated areas, with 20 arrests already made.
+                    </p>
+
+                    <h3>Community and Response:</h3>
+                    <p>
+                        The community response includes celebrities losing homes, federal aid, and local relief efforts providing meals to affected families and first responders.
+
+
+                        President Joe Biden has approved federal assistance, promising to cover 100% of firefighting and debris removalcosts for the next 180 days.
+
+
+                        As Los Angeles battles these infernos, the focus remains on life-saving evacuations, containment, and recovery efforts amidst criticism of local preparedness and response. The situation continues to evolve, with the hope that the coming days bring relief to the beleaguered communities.
+                    </p>
+
+                    <p>Stay tuned for further updates.</p>
             </div>
         </div>
         <div class="footer">
