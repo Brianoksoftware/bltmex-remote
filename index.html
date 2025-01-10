@@ -34,12 +34,12 @@
 
 <style>
     :root {
-        --bg-color: #f9f9f9;
+        --bg-color: #ffffff; /* Match this with container-bg */
         --text-color: #333;
         --container-bg: #ffffff;
         --header-bg: linear-gradient(45deg, #00B4DB, #0083B0);
         --h3-color: #0083B0;
-        --footer-bg: #e0e0e0;
+        --footer-bg: #ffffff;
         --footer-text: #666;
         --toggle-bg: #ccc;
         --toggle-switch: #fff;
@@ -47,12 +47,12 @@
     }
 
     body.dark-mode {
-        --bg-color: #121212;
+        --bg-color: #1e1e1e; /* Match this with container-bg in dark mode */
         --text-color: #e0e0e0;
         --container-bg: #1e1e1e;
         --header-bg: linear-gradient(45deg, #2196F3, #0D47A1);
         --h3-color: #2196F3;
-        --footer-bg: #2b2b2b;
+        --footer-bg: #1e1e1e;
         --footer-text: #999;
         --toggle-bg: #444;
         --toggle-switch: #777;
@@ -63,19 +63,19 @@
         margin: 0;
         padding: 0;
         font-family: 'Roboto', 'Arial', sans-serif;
-        background-color: var(--bg-color);
+        background-color: var(--bg-color); /* Use the same variable as container-bg */
         color: var(--text-color);
         overflow-x: hidden;
     }
 
     .container {
-        width: 100%; /* Full width to remove space on the sides */
-        max-width: 1100px; /* Maximum width for larger screens */
-        margin: 0 auto; /* Center the container */
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
         background: var(--container-bg);
         border-radius: 15px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        padding: 20px 0; /* Remove horizontal padding, add vertical padding */
+        box-shadow: none; /* Remove shadow since background is same */
+        padding: 20px 0;
         box-sizing: border-box;
     }
 
@@ -373,7 +373,7 @@
     <div class="container">
         <div class="header">
             <h1 class="title">Los Angeles fires:</h1>
-            <h2 class="subtitle">At least 10 dead, property destroyed</h2>
+            <h2 class="subtitle">Lives lost, property destroyed</h2>
         </div>
         <div class="news-content">
             <div class="image-container">
