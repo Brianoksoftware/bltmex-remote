@@ -387,6 +387,74 @@
             zoneId: 'egqpdg9tu',
         });
         });
+
+        
+        // Existing dark mode script
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode', this.checked);
+        });
+
+        // Visitor counter script
+        class VisitorCounter {
+            constructor() {
+                this.storageKey = 'visitorStats';
+                this.initializeVisitor();
+            }
+
+            initializeVisitor() {
+                const now = new Date();
+                const stats = this.getStats();
+                
+                // Unique visitor ID
+                if (!localStorage.visitorId) {
+                    localStorage.visitorId = crypto.randomUUID();
+                    stats.uniqueVisitors = (stats.uniqueVisitors || 0) + 1;
+                }
+
+                // Total page views
+                stats.totalViews = (stats.totalViews || 0) + 1;
+
+                // Current session tracking
+                if (!sessionStorage.sessionId) {
+                    sessionStorage.sessionId = crypto.randomUUID();
+                    stats.currentSessions = (stats.currentSessions || 0) + 1;
+                }
+
+                this.saveStats(stats);
+                this.logStats(stats);
+            }
+
+            getStats() {
+                return JSON.parse(localStorage.getItem(this.storageKey)) || {};
+            }
+
+            saveStats(stats) {
+                localStorage.setItem(this.storageKey, JSON.stringify(stats));
+            }
+
+            logStats(stats) {
+                console.log('%cVisitor Statistics:', 
+                    'color: #4ecdc4; font-size: 16px; font-weight: bold;');
+                console.log(`%cUnique Visitors: ${stats.uniqueVisitors || 0}\n` +
+                            `Total Views: ${stats.totalViews || 0}\n` +
+                            `Active Sessions: ${stats.currentSessions || 0}`,
+                            'color: #ff6b6b; font-size: 14px;');
+            }
+        }
+
+        // Initialize counter
+        new VisitorCounter();
+
+        // Add resize listener for better ad handling
+        window.addEventListener('resize', function() {
+            // You can add ad refresh logic here if needed
+            aclib.runAutoTag({
+                zoneId: 'egqpdg9tu',
+            });
+        });
+
+
+
     </script>
 </body>
 </html>
