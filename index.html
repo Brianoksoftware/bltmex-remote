@@ -109,6 +109,26 @@
             max-width: var(--ad-mobile-width);
         }
 
+
+
+        .banner-ad.mobile-ad {
+            display: flex;
+            justify-content: center; /* Centers content horizontally */
+            align-items: center;     /* Centers content vertically if needed */
+            text-align: center;      /* Ensures inline-block elements like images are centered */
+            margin: 25px auto;       /* Centers the div itself if it's not full-width */
+            padding: 10px 0;
+        }
+
+        /* If your ad comes as an iframe or div, you might need to target it specifically */
+        .banner-ad.mobile-ad iframe,
+        .banner-ad.mobile-ad div {
+            margin: 0 auto; /* Centers the iframe or div within the parent */
+        }
+
+
+
+
         .ad-container img {
             width: 100%;
             height: auto;
