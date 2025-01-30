@@ -27,6 +27,18 @@
     <meta property="og:locale" content="en_US"> <!-- Optional but recommended -->
 
 
+    <script>
+        // Dynamic meta tag updater
+        function updateMetaTags(articleData) {
+            document.querySelector('meta[property="og:title"]').content = articleData.title;
+            document.querySelector('meta[property="og:description"]').content = articleData.description;
+            document.querySelector('meta[property="og:url"]').content = window.location.href;
+            document.querySelector('meta[name="twitter:title"]').content = articleData.title;
+            document.querySelector('meta[name="twitter:description"]').content = articleData.description;
+        }
+    </script>
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCEVDK4BGK"></script>
     <script>
@@ -267,6 +279,39 @@
 
 
 
+                    .share-buttons {
+                margin-top: 25px;
+                text-align: center;
+            }
+
+            .share-button {
+                background: var(--header-bg);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 25px;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+
+            .share-button:hover {
+                transform: scale(1.05);
+            }
+
+            .copy-notification {
+                display: none;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--container-bg);
+                padding: 10px 20px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+
+
+
     </style>
 
 </head>
@@ -298,6 +343,83 @@
 
 <!--SECTION START ---------------------------------------------------------------------------------------------------------------->
 
+<div class="banner-ad desktop-ad">
+    <!-- Desktop ad script -->
+    <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=728x90&ga=g"></script>
+    <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/728x90.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
+</div>
+
+<div class="banner-ad mobile-ad">
+    <!-- Mobile ad script -->
+    <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=300x250&ga=g"></script>
+    <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
+</div>
+
+<div class="container"  id="article-blackhawk">
+
+    <div class="header">
+        <h1 class="title">Mid Air Collision:</h1>
+        <h2 class="subtitle">Black Hawk Helicopter Crashes into Passenger Jet</h2>
+    </div>
+    
+    <div class="news-content">
+        <div class="image-container">
+            <img src="crash.jpg" alt="Black Hawk Crash">
+        </div>
+        <div class="text-content">
+            <p><b>UPDATE:</b> Tragedy struck near Ronald Reagan Washington National Airport when an American Airlines regional jet collided midair with a U.S. Army Black Hawk helicopter. The incident, which occurred around 9 p.m. on January 29, 2025, has led to a massive search and rescue operation in the Potomac River where both aircraft crashed.</p>
+
+            <h3>Details of the Incident:</h3>
+            <p>The passenger jet, identified as American Eagle Flight 5342, was carrying 60 passengers and four crew members from Wichita, Kansas, when it collided with the Black Hawk helicopter, which had three soldiers aboard. The collision resulted in the plane splitting in half and both aircraft plunging into the icy waters of the Potomac. As of the latest reports, no survivors have been officially confirmed from the plane, but rescue efforts are ongoing.</p>
+            <h3>Official Response:</h3>
+            <p>President Donald Trump has been briefed on the "terrible accident" and extended prayers for the souls involved. Emergency services from multiple agencies, including DC Fire and EMS and the Metropolitan Police Department, are coordinating the rescue efforts. The Federal Aviation Administration (FAA) and National Transportation Safety Board (NTSB) are set to investigate this rare and tragic event.</p>
+
+            <h3>Community Impact and Reactions:</h3>
+            <p>The local community and nation are in shock, with many expressing their grief and offering support to the victims' families. The incident has raised questions about air traffic control procedures and military flight operations in civilian airspace. Discussions on social media reflect a mix of mourning, calls for a thorough investigation, and support for the first responders.</p>
+
+            <p>We will continue to update this story as more information becomes available.</p>
+        </div>
+    </div>
+
+    <div class="share-buttons" data-article-id="blackhawk">
+        <button class="share-button" onclick="copyArticleLink('blackhawk')">🔗 Share This Article</button>
+    </div>
+
+</div>
+
+<div class="banner-ad desktop-ad">
+    <!-- Desktop ad script -->
+    <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=728x90&ga=g"></script>
+    <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/728x90.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
+</div>
+
+<div class="banner-ad mobile-ad">
+    <!-- Mobile ad script -->
+    <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=300x250&ga=g"></script>
+    <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
+</div>
+
+<!--SECTION END-------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--SECTION START ---------------------------------------------------------------------------------------------------------------->
+
     <div class="banner-ad desktop-ad">
     <!-- Desktop ad script -->
     <script type="text/javascript" src="https://udbaa.com/bnr.php?section=General&pub=816797&format=728x90&ga=g"></script>
@@ -310,12 +432,13 @@
     <noscript><a href="https://yllix.com/publishers/816797" target="_blank"><img src="//ylx-aff.advertica-cdn.com/pub/300x250.png" style="border:none;margin:0;padding:0;vertical-align:baseline;" alt="ylliX - Online Advertising Network" /></a></noscript>
 </div>
 
-<div class="container">
+<div class="container" id="article-nomanssky">
 
     <div class="header">
         <h1 class="title">No Man's Sky:</h1>
         <h2 class="subtitle">Worlds Part II Update Launches</h2>
     </div>
+
     <div class="news-content">
         <div class="image-container">
             <img src="nomanssky.jpg" alt="No Man's Sky Update">
@@ -331,6 +454,11 @@
 
             <p>Stay tuned for more in-depth guides and community insights on how this update changes the gameplay dynamics of No Man's Sky.</p>
         </div>
+    </div>
+
+     <!-- ... existing article content ... -->
+    <div class="share-buttons" data-article-id="nomanssky">
+        <button class="share-button" onclick="copyArticleLink('nomanssky')">🔗 Share This Article</button>
     </div>
 
 </div>
@@ -468,6 +596,49 @@
         // Existing dark mode script
         document.getElementById('darkModeToggle').addEventListener('change', function() {
             document.body.classList.toggle('dark-mode', this.checked);
+        });
+
+
+
+
+
+        // Shareable Article Logic
+        function copyArticleLink(articleId) {
+            const baseUrl = window.location.href.split('#')[0];
+            const articleUrl = `${baseUrl}#article-${articleId}`;
+            
+            navigator.clipboard.writeText(articleUrl).then(() => {
+                showCopyNotification();
+                gtag('event', 'article_share', { article_id: articleId });
+            });
+        }
+
+        function showCopyNotification() {
+            const notification = document.createElement('div');
+            notification.className = 'copy-notification';
+            notification.textContent = 'Link copied to clipboard!';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.display = 'block';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Handle deep linking on page load
+        window.addEventListener('load', () => {
+            const articleHash = window.location.hash;
+            if (articleHash) {
+                const targetArticle = document.querySelector(articleHash);
+                if (targetArticle) {
+                    setTimeout(() => {
+                        targetArticle.scrollIntoView({ behavior: 'smooth' });
+                    }, 500);
+                }
+            }
         });
 
 
