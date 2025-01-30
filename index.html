@@ -261,7 +261,7 @@
         }
 
         input:checked + .slider:after {
-            content: '🌙';
+            content: ' ';
             transform: translateX(-30px);
         }
 
@@ -403,11 +403,7 @@
         });
 
         
-        // Existing dark mode script
-        document.getElementById('darkModeToggle').addEventListener('change', function() {
-            document.body.classList.toggle('dark-mode', this.checked);
-        });
-
+        
         // Visitor counter script
         class VisitorCounter {
             constructor() {
@@ -469,6 +465,14 @@
         });
 
 
+        // Existing dark mode script
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+            document.body.classList.toggle('dark-mode', this.checked);
+        });
+
+
+
+        /*
         // Track dark mode toggles (matches your existing feature)
         document.getElementById('darkModeToggle').addEventListener('change', function() {
           gtag('event', 'dark_mode_toggle', {
@@ -484,6 +488,8 @@
             });
           });
         });
+
+        */
 
 
 
