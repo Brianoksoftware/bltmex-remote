@@ -26,6 +26,18 @@
     <meta property="og:site_name" content="Summary News"> <!-- Fixed typo ("New" → "News") -->
     <meta property="og:locale" content="en_US"> <!-- Optional but recommended -->
 
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCEVDK4BGK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YCEVDK4BGK');
+    </script>
+
+
     <style>
         :root {
             /* Existing CSS variables remain unchanged */
@@ -375,6 +387,8 @@
     </footer>
 
     <script>
+
+    /*
         // Existing dark mode script
      document.getElementById('darkModeToggle').addEventListener('change', function() {
             document.body.classList.toggle('dark-mode', this.checked);
@@ -444,13 +458,31 @@
 
         // Initialize counter
         new VisitorCounter();
+        */
 
         // Add resize listener for better ad handling
-        window.addEventListener('resize', function() {
+        window.addEventListener('resize', function() {git 
             // You can add ad refresh logic here if needed
             aclib.runAutoTag({
                 zoneId: 'egqpdg9tu',
             });
+        });
+
+
+        // Track dark mode toggles (matches your existing feature)
+        document.getElementById('darkModeToggle').addEventListener('change', function() {
+          gtag('event', 'dark_mode_toggle', {
+            'dark_mode_enabled': this.checked
+          });
+        });
+
+        // Track ad clicks
+        document.querySelectorAll('.banner-ad a').forEach(ad => {
+          ad.addEventListener('click', () => {
+            gtag('event', 'ad_click', {
+              'ad_location': ad.closest('.mobile-ad') ? 'mobile' : 'desktop'
+            });
+          });
         });
 
 
