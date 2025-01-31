@@ -58,6 +58,11 @@
     
     <!-- For higher resolution screens -->
     <link rel="icon" type="image/jpeg" sizes="64x64" href="/favicon_logo_crop64.jpg">
+
+    <!--Bootstrap CDNs-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <!--<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon_logo32.jpg">--no / in local testing but needed in servers-->
    <!-- <link rel="icon" type="image/jpeg" sizes="16x16" href="/favicon_logo.jpg">-->
     
@@ -445,9 +450,158 @@
 
 
 
+
+        /* Custom Modern Styling for Bootstrap Navbar */
+
+        /* Navbar Background and Shadow */
+        .navbar {
+            background-color: #ffffff; /* White background */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 1rem 2rem; /* Add padding */
+        }
+
+        /* Navbar Brand */
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50 !important; /* Dark blue-gray */
+        }
+
+        /* Navbar Links */
+        .navbar-nav .nav-link {
+            color: #2c3e50 !important; /* Dark blue-gray */
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* Active Link */
+        .navbar-nav .nav-link.active {
+            background-color: #3498db; /* Bright blue */
+            color: #ffffff !important; /* White text */
+        }
+
+        /* Hover Effect */
+        .navbar-nav .nav-link:hover {
+            background-color: #3498db; /* Bright blue */
+            color: #ffffff !important; /* White text */
+            transform: translateY(-2px);
+        }
+
+        /* Disabled Link */
+        .navbar-nav .nav-link.disabled {
+            color: #bdc3c7 !important; /* Light gray */
+            pointer-events: none;
+        }
+
+        /* Custom Navbar Toggler */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .navbar-toggler-icon {
+            width: 30px;
+            height: 20px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: #2c3e50; /* Dark blue-gray */
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon span:nth-child(1) {
+            top: 0;
+        }
+
+        .navbar-toggler-icon span:nth-child(2),
+        .navbar-toggler-icon span:nth-child(3) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .navbar-toggler-icon span:nth-child(4) {
+            bottom: 0;
+        }
+
+        /* Toggler Animation When Open */
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(3) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(4) {
+            bottom: 50%;
+            transform: translateY(50%) rotate(-45deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar-nav {
+                margin-top: 1rem;
+            }
+
+            .navbar-nav .nav-link {
+                margin: 0.5rem 0;
+            }
+
+            /* Move Brand to the Right on Mobile */
+            .navbar-brand.mx-auto {
+                margin-left: auto !important;
+                margin-right: 0 !important;
+            }
+        }
+
+
+
+        /* Large Screens (Desktop) */
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                justify-content: flex-start !important; /* Align nav links to the left */
+            }
+
+            .navbar-nav {
+                margin-left: 0 !important; /* Remove default margin */
+            }
+        }
+
+
+
+
+
+
     </style>
 
 </head>
+
+
 <body>
     <!-- Dark mode toggle remains same -->
     <div class="mode-toggle">
@@ -458,7 +612,7 @@
     </div>
 
 
-    <!-- Navigation -->
+    <!-- Navigation 
     <nav class="nav-container">
         <ul id="home">
             <li><a href="#home">Home</a></li>
@@ -466,7 +620,43 @@
             <li><a href="https://quickheadlines.netlify.app/">Headlines</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+    </nav> -->
+
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Toggler Button for Mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand/Logo -->
+    <!--<a class="navbar-brand mx-auto mx-lg-0" href="#home">YourBrand</a> -->
+
+    <!-- Navbar Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://quickheadlines.netlify.app/">Headlines</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
 
 
     <main class="content-wrapper">
@@ -730,7 +920,7 @@
         <p>Summary News is an independent news website founded with the intention of providing our dear readers a summary of the 
         most important news of the day. We curate news for you so you never miss the headlines again.
         </p> 
-    </div>
+    </div> <br/><br/>
 
     <div id="contact" class="section">
         <h2>Contact us</h2>
@@ -738,7 +928,7 @@
         <h3>Email:<a href="mailto:brianokdev@gmail.com" style="text-decoration:none";> brianokdev@gmail.com</h3>
         <p> 
         </p> 
-    </div> <br/> <br/> <br/> <br/> <br/> <br/>
+    </div> <br/> <br/> <br/> <br/> 
 
 
 
