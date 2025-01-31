@@ -51,6 +51,21 @@
 
     <!-- Additional tags for better SEO and sharing -->
     <meta name="description" content="Details on the tragic mid-air collision between a Black Hawk and a passenger jet over the Potomac River.">
+
+
+    <!-- Standard favicon -->
+    <!--<link rel="icon" type="image/x-icon" href="/favicon.ico">-->
+    
+    <!-- For higher resolution screens -->
+    <link rel="icon" type="image/jpeg" sizes="64x64" href="/favicon_logo_crop64.jpg">
+    <!--<link rel="icon" type="image/jpeg" sizes="32x32" href="favicon_logo32.jpg">--no / in local testing but needed in servers-->
+   <!-- <link rel="icon" type="image/jpeg" sizes="16x16" href="/favicon_logo.jpg">-->
+    
+    <!-- Apple Touch Icon (for iOS devices) -->
+    <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">-->
+    
+    <!-- Optional: SVG favicon for browsers that support it -->
+   <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg">-->
     
     <!-- ... rest of your head content ... -->
 
@@ -376,6 +391,59 @@
             }
 
 
+        /* Navigation styling */
+        .nav-container {
+            background-color: var(--header-bg);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .nav-container ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-container ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        /* Responsive design for navigation */
+        @media (max-width: 600px) {
+            .nav-container ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-container ul li {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Sections styling */
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--container-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+
+         /* Dark mode for navigation */
+        body.dark-mode .nav-container ul li a {
+            color: white;
+        }
+
+
+
+
+
 
     </style>
 
@@ -388,6 +456,18 @@
             <span class="slider"></span>
         </label>
     </div>
+
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <ul id="home">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://quickheadlines.netlify.app/">Headlines</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
 
     <main class="content-wrapper">
 
@@ -451,6 +531,7 @@
 
     <div class="header">
         <h1 class="title">Mid Air Collision:</h1>
+        <!--  <a href="#article-blackhawk">Mid Air Collision:</a>  -->
         <h2 class="subtitle">Black Hawk Helicopter Crashes into Passenger Jet</h2>
     </div>
     
@@ -470,6 +551,7 @@
             <p>The local community and nation are in shock, with many expressing their grief and offering support to the victims' families. The incident has raised questions about air traffic control procedures and military flight operations in civilian airspace. Discussions on social media reflect a mix of mourning, calls for a thorough investigation, and support for the first responders.</p>
 
             <p>We will continue to update this story as more information becomes available.</p>
+            <p> Read about <a href="#article-nomanssky" style="text-decoration:none;"> No Man's Sky </a>part II update below...</p>
         </div>
     </div>
 
@@ -634,6 +716,33 @@
 <!--EDIT ABOVE----------(footer below)--------------------------------------------------------------------------------------------->
 
     </main>
+
+
+
+     <!--<div id="home" class="section">
+        <h2>Home</h2>
+            Home content 
+    </div>-->
+    <div id="about" class="section">
+        <h2>About</h2>
+        <!-- About content -->
+        <!-- <h3>Hello reader</h3> -->
+        <p>Summary News is an independent news website founded with the intention of providing our dear readers a summary of the 
+        most important news of the day. We curate news for you so you never miss the headlines again.
+        </p> 
+    </div>
+
+    <div id="contact" class="section">
+        <h2>Contact us</h2>
+        <!-- Contact content -->
+        <h3>Email:<a href="mailto:brianokdev@gmail.com" style="text-decoration:none";> brianokdev@gmail.com</h3>
+        <p> 
+        </p> 
+    </div> <br/> <br/> <br/> <br/> <br/> <br/>
+
+
+
+
 
     <footer class="footer">
         <!-- Footer content -->
